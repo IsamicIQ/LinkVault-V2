@@ -11,7 +11,7 @@ export default function ViewToggle({ viewMode, onViewModeChange }: ViewTogglePro
       <button
         onClick={() => onViewModeChange('grid')}
         className={`p-2 rounded ${viewMode === 'grid' 
-          ? 'bg-blue-600 text-black dark:text-white' 
+          ? 'bg-primary-600 text-black dark:text-white' 
           : 'text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700'
         }`}
       >
@@ -20,7 +20,7 @@ export default function ViewToggle({ viewMode, onViewModeChange }: ViewTogglePro
       <button
         onClick={() => onViewModeChange('list')}
         className={`p-2 rounded ${viewMode === 'list' 
-          ? 'bg-blue-600 text-black dark:text-white' 
+          ? 'bg-primary-600 text-black dark:text-white' 
           : 'text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700'
         }`}
       >

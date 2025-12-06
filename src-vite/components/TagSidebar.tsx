@@ -31,7 +31,7 @@ export default function TagSidebar({ tags, selectedTag, onTagSelect }: TagSideba
                 onClick={() => onTagSelect(selectedTag === tag.id ? null : tag.id)}
                 className={`w-full text-left px-3 py-2 rounded-lg text-sm transition-colors ${
                   selectedTag === tag.id
-                    ? 'bg-blue-600 text-black dark:text-white'
+                    ? 'bg-primary-600 text-black dark:text-white'
                     : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'
                 }`}
               >

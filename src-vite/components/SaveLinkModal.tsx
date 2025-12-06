@@ -228,7 +228,7 @@ export default function SaveLinkModal({ isOpen, onClose, onSave }: SaveLinkModal
               onChange={(e) => setUrl(e.target.value)}
               placeholder="https://example.com"
               required
-              className="w-full px-3 py-2 border border-gray-300/70 dark:border-gray-600 rounded-lg bg-gray-50/90 dark:bg-gray-700 text-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-3 py-2 border border-gray-300/70 dark:border-gray-600 rounded-lg bg-gray-50/90 dark:bg-gray-700 text-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary-500"
             />
           </div>
 
@@ -242,7 +242,7 @@ export default function SaveLinkModal({ isOpen, onClose, onSave }: SaveLinkModal
               onChange={(e) => setNotes(e.target.value)}
               placeholder="Add your personal notes..."
               rows={3}
-              className="w-full px-3 py-2 border border-gray-300/70 dark:border-gray-600 rounded-lg bg-gray-50/90 dark:bg-gray-700 text-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-3 py-2 border border-gray-300/70 dark:border-gray-600 rounded-lg bg-gray-50/90 dark:bg-gray-700 text-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary-500"
             />
           </div>
 
@@ -258,7 +258,7 @@ export default function SaveLinkModal({ isOpen, onClose, onSave }: SaveLinkModal
                 onChange={(e) => setTagInput(e.target.value)}
                 onKeyPress={handleKeyPress}
                 placeholder="Type tag and press Enter"
-                className="w-full px-3 py-2 border border-gray-300/70 dark:border-gray-600 rounded-lg bg-gray-50/90 dark:bg-gray-700 text-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-3 py-2 border border-gray-300/70 dark:border-gray-600 rounded-lg bg-gray-50/90 dark:bg-gray-700 text-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary-500"
               />
               {suggestedTags.length > 0 && (
                 <div className="absolute z-10 w-full mt-1 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg shadow-lg">
@@ -292,13 +292,13 @@ export default function SaveLinkModal({ isOpen, onClose, onSave }: SaveLinkModal
                 {tags.map(tag => (
                   <span
                     key={tag}
-                    className="inline-flex items-center gap-1 px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300 rounded-full text-sm"
+                    className="inline-flex items-center gap-1 px-3 py-1 bg-primary-100 dark:bg-primary-900 text-primary-700 dark:text-primary-300 rounded-full text-sm"
                   >
                     {tag}
                     <button
                       type="button"
                       onClick={() => handleRemoveTag(tag)}
-                      className="hover:text-blue-900 dark:hover:text-blue-100"
+                      className="hover:text-primary-900 dark:hover:text-primary-100"
                     >
                       <X size={14} />
                     </button>
@@ -319,7 +319,7 @@ export default function SaveLinkModal({ isOpen, onClose, onSave }: SaveLinkModal
             <button
               type="submit"
               disabled={loading || !url.trim()}
-              className="px-4 py-2 bg-blue-600 text-black dark:text-white rounded-lg hover:bg-blue-700 disabled:opacity-50"
+              className="px-4 py-2 bg-primary-600 text-black dark:text-white rounded-lg hover:bg-primary-700 disabled:opacity-50"
             >
               {loading ? 'Saving...' : 'Save Link'}
             </button>

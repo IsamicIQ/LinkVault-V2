@@ -213,7 +213,7 @@ export default function DeleteTagModal({ tag, onClose, onDelete }: DeleteTagModa
                         type="checkbox"
                         checked={isSelected}
                         onChange={() => toggleLinkSelection(link.id)}
-                        className="mt-1 h-4 w-4 text-blue-600 rounded border-gray-300 focus:ring-blue-500"
+                        className="mt-1 h-4 w-4 text-blue-600 rounded border-gray-300 focus:ring-primary-500"
                       />
                       <div className="flex-1 min-w-0">
                         <p className={`font-medium ${!isSelected ? 'text-red-600 dark:text-red-400' : 'text-gray-900 dark:text-white'}`}>
@@ -227,7 +227,7 @@ export default function DeleteTagModal({ tag, onClose, onDelete }: DeleteTagModa
                                 key={t.id}
                                 className={`text-xs px-2 py-0.5 rounded ${
                                   t.id === tag.id
-                                    ? 'bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300'
+                                    ? 'bg-primary-100 dark:bg-primary-900/30 text-primary-700 dark:text-primary-300'
                                     : 'bg-gray-100 dark:bg-gray-600 text-gray-600 dark:text-gray-300'
                                 }`}
                               >

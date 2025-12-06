@@ -100,7 +100,7 @@ export default function LoginPage() {
                 }}
               >
                 <div className="flex items-center gap-3">
-                  <div className="w-2.5 h-2.5 bg-blue-400 rounded-full animate-pulse"></div>
+                  <div className="w-2.5 h-2.5 bg-primary-400 rounded-full animate-pulse"></div>
                   <span className="truncate font-mono text-xs">{url}</span>
                 </div>
               </div>
@@ -157,7 +157,7 @@ export default function LoginPage() {
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full py-2 px-4 bg-blue-500 hover:bg-blue-600 text-white font-semibold rounded text-sm disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                className="w-full py-2 px-4 bg-primary-500 hover:bg-primary-600 text-white font-semibold rounded text-sm disabled:opacity-50 disabled:cursor-not-allowed shadow-orange-glow-sm transition-all duration-200"
               >
                 {loading ? 'Logging in...' : 'Log in'}
               </button>
@@ -172,7 +172,7 @@ export default function LoginPage() {
             <div className="text-center">
               <Link
                 to="/forgot-password"
-                className="text-sm text-blue-500 hover:text-blue-400"
+                className="text-sm text-primary-500 hover:text-primary-400"
               >
                 Forgot password?
               </Link>
@@ -185,7 +185,7 @@ export default function LoginPage() {
               Don't have an account?{' '}
               <Link
                 to="/signup"
-                className="text-blue-500 hover:text-blue-400 font-semibold"
+                className="text-primary-500 hover:text-primary-400 font-semibold"
               >
                 Sign up
               </Link>
