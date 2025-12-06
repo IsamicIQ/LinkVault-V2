@@ -1,0 +1,199 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+/* Dark mode dashboard background with diagonal grid pattern */
+.dark #dashboard-container {
+  background-color: #2d2d2d !important;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Diagonal grid pattern - creates diamond shapes */
+.dark #dashboard-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 30px,
+      rgba(255, 255, 255, 0.04) 30px,
+      rgba(255, 255, 255, 0.04) 31px
+    ),
+    repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 30px,
+      rgba(255, 255, 255, 0.04) 30px,
+      rgba(255, 255, 255, 0.04) 31px
+    );
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Watermark text pattern */
+.dark #dashboard-container::after {
+  content: 'LinkVault';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  font-family: 'Brush Script MT', 'Lucida Handwriting', cursive, serif;
+  font-size: 200px;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.02);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  align-items: center;
+  justify-items: center;
+  transform: rotate(-12deg);
+  pointer-events: none;
+  z-index: 0;
+  letter-spacing: 30px;
+  opacity: 0.35;
+  text-align: center;
+  padding: 20% 10%;
+}
+
+.dark #dashboard-container::after {
+  content: 'LinkVault LinkVault LinkVault LinkVault LinkVault LinkVault LinkVault LinkVault LinkVault';
+  display: block;
+  position: absolute;
+  top: -20%;
+  left: -10%;
+  width: 120%;
+  height: 140%;
+  font-family: 'Brush Script MT', 'Lucida Handwriting', cursive, serif;
+  font-size: 180px;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.02);
+  line-height: 400px;
+  transform: rotate(-12deg);
+  pointer-events: none;
+  z-index: 0;
+  letter-spacing: 50px;
+  opacity: 0.3;
+  text-align: center;
+  word-spacing: 200px;
+  white-space: nowrap;
+}
+
+/* Light mode dashboard background with white marble texture */
+#dashboard-container {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Light mode background - soft fabric texture */
+html:not(.dark) #dashboard-container {
+  background-color: #f5f3f0 !important;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Soft fabric texture with gentle folds - more visible */
+html:not(.dark) #dashboard-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    /* Base warm off-white/ivory with more variation */
+    linear-gradient(135deg, #faf8f5 0%, #f0ede8 30%, #f5f3f0 60%, #faf8f5 100%),
+    /* Gentle folds and undulations - more visible shadows */
+    radial-gradient(ellipse 1200px 400px at 15% 25%, rgba(240, 237, 232, 0.85) 0%, rgba(250, 248, 245, 0.4) 40%, transparent 70%),
+    radial-gradient(ellipse 1000px 350px at 70% 45%, rgba(245, 243, 240, 0.75) 0%, rgba(250, 248, 245, 0.35) 45%, transparent 65%),
+    radial-gradient(ellipse 1100px 380px at 40% 70%, rgba(240, 237, 232, 0.8) 0%, rgba(245, 243, 240, 0.4) 42%, transparent 68%),
+    radial-gradient(ellipse 900px 320px at 85% 20%, rgba(250, 248, 245, 0.7) 0%, rgba(245, 243, 240, 0.3) 38%, transparent 62%),
+    radial-gradient(ellipse 1300px 420px at 25% 80%, rgba(240, 237, 232, 0.75) 0%, rgba(250, 248, 245, 0.35) 45%, transparent 70%),
+    /* More visible flowing curves */
+    repeating-linear-gradient(
+      15deg,
+      transparent,
+      transparent 180px,
+      rgba(240, 237, 232, 0.5) 180px,
+      rgba(240, 237, 232, 0.5) 188px,
+      transparent 188px,
+      transparent 360px
+    ),
+    repeating-linear-gradient(
+      -12deg,
+      transparent,
+      transparent 200px,
+      rgba(245, 243, 240, 0.45) 200px,
+      rgba(245, 243, 240, 0.45) 208px,
+      transparent 208px,
+      transparent 400px
+    ),
+    /* More visible weave texture */
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(240, 237, 232, 0.3) 2px,
+      rgba(240, 237, 232, 0.3) 3px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 2px,
+      rgba(245, 243, 240, 0.25) 2px,
+      rgba(245, 243, 240, 0.25) 3px
+    );
+  pointer-events: none;
+  z-index: 0;
+  opacity: 1;
+}
+
+/* More visible sheen layer */
+html:not(.dark) #dashboard-container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    /* More visible sheen on raised areas */
+    radial-gradient(ellipse 800px 300px at 30% 30%, rgba(255, 255, 255, 0.2) 0%, rgba(250, 248, 245, 0.1) 40%, transparent 60%),
+    radial-gradient(ellipse 600px 250px at 65% 60%, rgba(255, 255, 255, 0.15) 0%, rgba(250, 248, 245, 0.08) 35%, transparent 55%),
+    radial-gradient(ellipse 700px 280px at 50% 75%, rgba(255, 255, 255, 0.18) 0%, rgba(250, 248, 245, 0.09) 38%, transparent 58%);
+  pointer-events: none;
+  z-index: 0;
+  opacity: 1;
+  mix-blend-mode: overlay;
+}
+

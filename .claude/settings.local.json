@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(powershell -Command \"Get-Process | Where-Object { $_ProcessName -eq ''node'' } | Select-Object -First 5 Id,ProcessName\")"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
