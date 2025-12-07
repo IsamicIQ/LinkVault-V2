@@ -1,0 +1,5 @@
+src-vite/
+node_modules/
+.vite/
+dist-vite/
+
