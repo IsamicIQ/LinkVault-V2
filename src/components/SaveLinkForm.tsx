@@ -118,6 +118,9 @@ export default function SaveLinkForm({ onSave, onCancel }: SaveLinkFormProps) {
             thumbnail_url: metadata.thumbnailUrl,
           })
           .eq('id', linkData.id)
+          .then(({ error }) => {
+            if (error) console.error('Failed to update metadata:', error)
+          })
           .catch(err => console.error('Failed to update metadata:', err))
       }).catch(err => console.error('Failed to fetch metadata:', err))
 
