@@ -176,7 +176,7 @@ LinkVault-V2/
 - **tags**: Stores user's tags
 - **link_tags**: Junction table for many-to-many relationship between links and tags
 
-All tables have Row Level Security (RLS) enabled to ensure users can only access their own data.
+All tables have Row Level Security (RLS) enabled to ensure users can only access their own data!
 
 ## Scripts
 
