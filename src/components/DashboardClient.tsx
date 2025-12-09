@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react'
 import { createClient } from '@/lib/supabase/client'
 import { LinkWithTags } from '@/types/database'
 import LinkCard from './LinkCard'
-import SaveLinkForm from './SaveLinkForm'
+import SaveLinkModal from './SaveLinkModal'
 import SearchBar from './SearchBar'
 import TagPills from './TagPills'
 import ViewToggle from './ViewToggle'
@@ -24,7 +24,7 @@ export default function DashboardClient() {
   const [searchQuery, setSearchQuery] = useState('')
   const [sortBy, setSortBy] = useState<SortOption>('newest')
   const [viewMode, setViewMode] = useState<ViewMode>('grid')
-  const [showSaveForm, setShowSaveForm] = useState(false)
+  const [showSaveModal, setShowSaveModal] = useState(false)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
   const [tagToDelete, setTagToDelete] = useState<{ id: string; name: string; count: number } | null>(null)
@@ -220,20 +220,43 @@ export default function DashboardClient() {
     router.refresh()
   }
 
-  const handleLinkSaved = () => {
-    loadLinks()
-    loadTags()
-    setShowSaveForm(false)
-  }
+  const handleDeleteLink = async (id: string) => {
+    try {
+      // Get the link's tags before deleting
+      const linkToDelete = links.find(l => l.id === id)
+      const tagIds = linkToDelete?.tags?.map(t => t.id) || []
 
-  const handleLinkDeleted = () => {
-    loadLinks()
-    loadTags()
-  }
+      // Delete the link
+      const { error } = await supabase
+        .from('links')
+        .delete()
+        .eq('id', id)
 
-  const handleLinkUpdated = () => {
-    loadLinks()
-    loadTags()
+      if (error) throw error
+
+      setLinks(links.filter(link => link.id !== id))
+
+      // Check and delete unused tags
+      for (const tagId of tagIds) {
+        const { data: remainingLinks } = await supabase
+          .from('link_tags')
+          .select('link_id')
+          .eq('tag_id', tagId)
+          .limit(1)
+
+        // If no links use this tag, delete it
+        if (!remainingLinks || remainingLinks.length === 0) {
+          await supabase
+            .from('tags')
+            .delete()
+            .eq('id', tagId)
+        }
+      }
+
+      loadTags() // Refresh tag counts
+    } catch (error: any) {
+      console.error('Error deleting link:', error)
+    }
   }
 
   const handleTagDeleted = () => {
@@ -288,7 +311,7 @@ export default function DashboardClient() {
                 <RefreshCw size={18} />
               </button>
               <button
-                onClick={() => setShowSaveForm(true)}
+                onClick={() => setShowSaveModal(true)}
                 className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-primary-600 to-primary-700 text-gray-800 dark:text-white rounded-xl hover:from-primary-700 hover:to-primary-800 shadow-orange-glow-sm hover:shadow-orange-glow transition-all duration-200 font-medium"
               >
                 <Plus size={18} />
@@ -364,7 +387,7 @@ export default function DashboardClient() {
                 </p>
                 {!searchQuery && !selectedTag && (
                   <button
-                    onClick={() => setShowSaveForm(true)}
+                    onClick={() => setShowSaveModal(true)}
                     className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-primary-700 to-primary-600 text-gray-800 dark:text-white rounded-xl hover:from-primary-800 hover:to-primary-700 shadow-sm hover:shadow-md transition-all duration-200 font-medium"
                   >
                     <Plus size={20} />
@@ -382,8 +405,8 @@ export default function DashboardClient() {
                     key={link.id}
                     link={link}
                     viewMode={viewMode}
-                    onDelete={handleLinkDeleted}
-                    onUpdate={handleLinkUpdated}
+                    onDelete={handleDeleteLink}
+                    searchQuery={searchQuery}
                   />
                 ))}
               </div>
@@ -418,16 +441,14 @@ export default function DashboardClient() {
       )}
 
       {/* Save Link Modal */}
-      {showSaveForm && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white dark:bg-gray-800 rounded-lg p-6 max-w-2xl w-full mx-4">
-            <SaveLinkForm
-              onSave={handleLinkSaved}
-              onCancel={() => setShowSaveForm(false)}
-            />
-          </div>
-        </div>
-      )}
+      <SaveLinkModal
+        isOpen={showSaveModal}
+        onClose={() => setShowSaveModal(false)}
+        onSave={() => {
+          loadLinks()
+          loadTags()
+        }}
+      />
 
       {/* Delete Tag Modal */}
       {tagToDelete && (
