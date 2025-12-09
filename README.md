@@ -187,7 +187,7 @@ All tables have Row Level Security (RLS) enabled to ensure users can only access
 
 ## Contributing
 
-Contributions are welcome! Please feel free to submit a Pull Request.
+Contributions are welcome! Please feel free to submit a Pull Request!
 
 ## License
 
