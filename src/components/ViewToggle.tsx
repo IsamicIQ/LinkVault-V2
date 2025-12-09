@@ -9,11 +9,11 @@ interface ViewToggleProps {
 
 export default function ViewToggle({ viewMode, onViewModeChange }: ViewToggleProps) {
   return (
-    <div className="flex items-center gap-2 border border-gray-300 dark:border-gray-600 rounded-lg p-1">
+    <div className="flex items-center gap-2 border border-primary-300 dark:border-gray-600 rounded-lg p-1">
       <button
         onClick={() => onViewModeChange('grid')}
         className={`p-2 rounded ${viewMode === 'grid' 
-          ? 'bg-blue-600 text-white' 
+          ? 'bg-primary-600 text-black dark:text-white' 
           : 'text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700'
         }`}
       >
@@ -22,7 +22,7 @@ export default function ViewToggle({ viewMode, onViewModeChange }: ViewTogglePro
       <button
         onClick={() => onViewModeChange('list')}
         className={`p-2 rounded ${viewMode === 'list' 
-          ? 'bg-blue-600 text-white' 
+          ? 'bg-primary-600 text-black dark:text-white' 
           : 'text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700'
         }`}
       >
@@ -31,4 +31,3 @@ export default function ViewToggle({ viewMode, onViewModeChange }: ViewTogglePro
     </div>
   )
 }
-
