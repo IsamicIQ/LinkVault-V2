@@ -150,7 +150,7 @@ export default function DeleteTagModal({ tag, onClose, onDelete }: DeleteTagModa
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-      <div className="bg-white dark:bg-gray-800 rounded-lg p-6 max-w-2xl w-full mx-4 max-h-[90vh] flex flex-col">
+      <div className="bg-gray-50/95 dark:bg-gray-800 rounded-lg p-6 max-w-2xl w-full mx-4 max-h-[90vh] flex flex-col">
         <div className="flex items-center justify-between mb-4">
           <h2 className="text-xl font-semibold text-gray-900 dark:text-white">Delete Tag</h2>
           <button
@@ -216,7 +216,7 @@ export default function DeleteTagModal({ tag, onClose, onDelete }: DeleteTagModa
                         type="checkbox"
                         checked={isSelected}
                         onChange={() => toggleLinkSelection(link.id)}
-                        className="mt-1 h-4 w-4 text-primary-600 rounded border-gray-300 focus:ring-primary-500"
+                        className="mt-1 h-4 w-4 text-blue-600 rounded border-gray-300 focus:ring-primary-500"
                       />
                       <div className="flex-1 min-w-0">
                         <p className={`font-medium ${!isSelected ? 'text-red-600 dark:text-red-400' : 'text-gray-900 dark:text-white'}`}>
@@ -259,7 +259,7 @@ export default function DeleteTagModal({ tag, onClose, onDelete }: DeleteTagModa
           <button
             onClick={handleDelete}
             disabled={loading || loadingLinks}
-            className="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 disabled:opacity-50 flex items-center gap-2"
+            className="px-4 py-2 bg-red-600 text-black dark:text-white rounded-lg hover:bg-red-700 disabled:opacity-50 flex items-center gap-2"
           >
             <Trash2 size={18} />
             {loading ? 'Deleting...' : `Delete Tag${linksToDeleteCount > 0 ? ` (${linksToDeleteCount} links)` : ''}`}

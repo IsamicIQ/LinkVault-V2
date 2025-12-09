@@ -4,12 +4,18 @@ export function cn(...inputs: ClassValue[]) {
   return clsx(inputs)
 }
 
-export function extractDomain(url: string): string {
+export function extractDomain(url: string): string | null {
   try {
     const urlObj = new URL(url)
-    return urlObj.hostname.replace('www.', '')
+    const hostname = urlObj.hostname.replace('www.', '')
+    return hostname || null
   } catch {
-    return url
+    // If URL parsing fails, try to extract domain manually
+    const match = url.match(/https?:\/\/([^\/]+)/)
+    if (match && match[1]) {
+      return match[1].replace('www.', '')
+    }
+    return null
   }
 }
 
