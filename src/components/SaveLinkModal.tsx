@@ -151,7 +151,6 @@ export default function SaveLinkModal({ isOpen, onClose, onSave }: SaveLinkModal
           .then(({ error }) => {
             if (error) console.error('Failed to update metadata:', error)
           })
-          .catch(err => console.error('Failed to update metadata:', err))
       }).catch(err => console.error('Failed to fetch metadata:', err))
 
       // Reset form
