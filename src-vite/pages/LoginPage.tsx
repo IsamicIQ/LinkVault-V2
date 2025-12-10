@@ -113,15 +113,15 @@ export default function LoginPage() {
       <div className="flex-1 flex items-center justify-center bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 px-6 py-12">
         <div className="w-full max-w-sm">
           {/* Instagram-style Logo */}
-          <h1 className="text-4xl font-bold text-white mb-8 text-center" style={{ fontFamily: 'cursive' }}>
+          <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-8 text-center" style={{ fontFamily: 'cursive' }}>
             LinkVault
           </h1>
 
           {/* Form Card */}
-          <div className="bg-black border border-gray-800 rounded-lg p-8 mb-4">
+          <div className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm border border-gray-200 dark:border-gray-700 rounded-lg p-8 mb-4 shadow-lg">
             <form className="space-y-4" onSubmit={handleLogin}>
               {error && (
-                <div className="bg-red-900/20 border border-red-800 text-red-400 px-4 py-3 rounded text-sm">
+                <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 text-red-600 dark:text-red-400 px-4 py-3 rounded text-sm">
                   {error}
                 </div>
               )}
@@ -135,7 +135,7 @@ export default function LoginPage() {
                   required
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="w-full px-3 py-2.5 bg-black border border-gray-700 text-white placeholder-gray-500 rounded text-sm focus:outline-none focus:border-gray-600"
+                  className="w-full px-3 py-2.5 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 rounded text-sm focus:outline-none focus:border-primary-500 dark:focus:border-primary-400"
                   placeholder="Phone number, username, or email"
                 />
               </div>
@@ -149,7 +149,7 @@ export default function LoginPage() {
                   required
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  className="w-full px-3 py-2.5 bg-black border border-gray-700 text-white placeholder-gray-500 rounded text-sm focus:outline-none focus:border-gray-600"
+                  className="w-full px-3 py-2.5 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 rounded text-sm focus:outline-none focus:border-primary-500 dark:focus:border-primary-400"
                   placeholder="Password"
                 />
               </div>
@@ -164,9 +164,9 @@ export default function LoginPage() {
             </form>
 
             <div className="flex items-center my-6">
-              <div className="flex-1 border-t border-gray-700"></div>
-              <span className="px-4 text-gray-500 text-sm font-semibold">OR</span>
-              <div className="flex-1 border-t border-gray-700"></div>
+              <div className="flex-1 border-t border-gray-300 dark:border-gray-700"></div>
+              <span className="px-4 text-gray-500 dark:text-gray-400 text-sm font-semibold">OR</span>
+              <div className="flex-1 border-t border-gray-300 dark:border-gray-700"></div>
             </div>
 
             <div className="text-center">
@@ -180,8 +180,8 @@ export default function LoginPage() {
           </div>
 
           {/* Sign up link */}
-          <div className="bg-black border border-gray-800 rounded-lg p-6 text-center">
-            <p className="text-gray-400 text-sm">
+          <div className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm border border-gray-200 dark:border-gray-700 rounded-lg p-6 text-center shadow-lg">
+            <p className="text-gray-600 dark:text-gray-400 text-sm">
               Don't have an account?{' '}
               <Link
                 to="/signup"
