@@ -117,7 +117,7 @@ export default function SignUpPage() {
             {sampleUrls.map((url, index) => (
               <div
                 key={index}
-                className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg px-4 py-3 text-white text-sm max-w-xs shadow-lg"
+                className="bg-white/80 dark:bg-white/10 backdrop-blur-sm border border-gray-300 dark:border-white/20 rounded-lg px-4 py-3 text-gray-800 dark:text-white text-sm max-w-xs shadow-lg"
                 style={{
                   transform: `translateY(${(index - 1) * 30}px)`,
                   animation: `float 3s ease-in-out infinite ${index * 0.3}s`,
