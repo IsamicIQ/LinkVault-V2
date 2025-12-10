@@ -50,7 +50,7 @@ export default function LoginPage() {
               viewBox="0 0 240 240"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
-              className="text-white"
+              className="text-gray-800 dark:text-white"
             >
               {/* Safe body */}
               <rect x="40" y="60" width="160" height="120" rx="10" fill="currentColor" opacity="0.9" />
