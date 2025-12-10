@@ -62,9 +62,9 @@ export default function SignUpPage() {
   ]
 
   return (
-    <div className="min-h-screen flex bg-black">
+    <div className="min-h-screen flex bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900">
       {/* Left Section - Safe with URLs */}
-      <div className="hidden md:flex md:w-1/2 items-center justify-center bg-black relative overflow-hidden">
+      <div className="hidden md:flex md:w-1/2 items-center justify-center bg-gradient-to-br from-slate-100 via-blue-100 to-indigo-100 dark:from-slate-800 dark:via-slate-700 dark:to-slate-800 relative overflow-hidden">
         <div className="relative w-full h-full flex items-center justify-center">
           {/* Safe Icon */}
           <div className="relative z-10">
@@ -134,7 +134,7 @@ export default function SignUpPage() {
       </div>
 
       {/* Right Section - Signup Form */}
-      <div className="flex-1 flex items-center justify-center bg-black px-6 py-12">
+      <div className="flex-1 flex items-center justify-center bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 px-6 py-12">
         <div className="w-full max-w-sm">
           {/* Instagram-style Logo */}
           <h1 className="text-4xl font-bold text-white mb-8 text-center" style={{ fontFamily: 'cursive' }}>
