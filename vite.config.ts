@@ -4,6 +4,7 @@ import path from 'path'
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  root: '.', // Explicitly set root to current directory
   plugins: [react()],
   resolve: {
     alias: {
@@ -16,6 +17,7 @@ export default defineConfig({
   },
   build: {
     outDir: 'dist-vite',
+    emptyOutDir: true,
   },
   // Exclude Next.js dependencies from optimization
   // Vite only processes files imported from the entry point (src-vite/main.tsx),
