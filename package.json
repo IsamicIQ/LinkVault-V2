@@ -5,10 +5,10 @@
   "main": "index.js",
   "scripts": {
     "dev": "next dev",
-    "dev:vite": "vite",
+    "dev:vite": "vite --config vite.config.ts",
     "build": "next build",
-    "build:vite": "vite build",
-    "preview:vite": "vite preview",
+    "build:vite": "vite build --config vite.config.ts",
+    "preview:vite": "vite preview --config vite.config.ts",
     "start": "next start",
     "lint": "next lint",
     "deploy:vite": "vercel --prod"
