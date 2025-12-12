@@ -17,5 +17,11 @@ export default defineConfig({
   build: {
     outDir: 'dist-vite',
   },
+  // Exclude Next.js dependencies from optimization
+  // Vite only processes files imported from the entry point (src-vite/main.tsx),
+  // so Next.js files like middleware.ts won't be processed automatically
+  optimizeDeps: {
+    exclude: ['next'],
+  },
 })
 

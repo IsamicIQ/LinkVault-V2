@@ -10,7 +10,8 @@
     "build:vite": "vite build",
     "preview:vite": "vite preview",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "deploy:vite": "vercel --prod"
   },
   "repository": {
     "type": "git",
