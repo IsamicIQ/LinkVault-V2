@@ -1,4 +1,20 @@
+# Dependencies and build artifacts
 node_modules/
 .vite/
 dist-vite/
+
+# Next.js app (not deploying)
+src/
+.next/
+
+# Database migrations (not needed for frontend)
+supabase/migrations/
+*.sql
+
+# Browser extension (if not deploying)
+extension/
+
+# Git and local files
+.git/
+.env.local
 
